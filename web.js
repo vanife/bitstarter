@@ -4,8 +4,8 @@ var app = express();
 app.use(express.logger());
 
 app.get('/', function(request, response) {
-    var cont = fs.readFileSync('index.html', encoding='ascii');
-    console.log(cont);
+    var buf = fs.readFileSync('index.html');
+    var cont = buf.toString('utf8');
     //var cont = 'Hello World 2!';
 
     response.send(cont);
